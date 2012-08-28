@@ -24,7 +24,7 @@ def points_six_recomm():
     elif p_max in range(49, 60):
         res = 4
     else:
-       res = 0
+        res = 0
 
     return jsonify(result=res)
 
