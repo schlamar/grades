@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block body %}
+  <table border="1" class=result>
+  <tr>
+  <th>von</th><th>bis</th><th>Note</th>
+  </tr>
+
+  {% for from, to, grade in data %}
+    <tr>
+    <td>{{ from }}</td>
+    <td>{{ to }}</td>
+    <td>{{ grade }}</td>
+    </tr>
+  {% endfor %}
+
+  </table> 
+{% endblock %}
