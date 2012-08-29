@@ -8,8 +8,6 @@ from flask import Flask, render_template, flash, request, jsonify
 from lib import calculate_data
 
 app = Flask(__name__)
-app.debug = True
-app.secret_key = 'marc1234xyz'
 
 
 @app.route('/_points_six')
@@ -23,10 +21,8 @@ def points_six_recomm():
         res = 2
     elif p_max in range(37, 49):
         res = 3
-    elif p_max in range(49, 60):
-        res = 4
     else:
-        res = 0
+        res = 4
 
     return jsonify(result=res)
 
@@ -49,6 +45,6 @@ def result():
     return render_template('result.html', data=data)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
