@@ -37,11 +37,12 @@ def result():
     try:
         points_max = int(request.form['points_max'])
         points_six = int(request.form['points_six'])
+        steps = request.form['steps']
     except ValueError:
         flash(u'Keine gültigen Zahlen angeben.')
         data = list()
     else:
-        data = calculate_data(points_max, points_six)
+        data = calculate_data(points_max, points_six, steps)
     return render_template('result.html', data=data)
 
 
