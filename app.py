@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+import logging
 import os
 
 from flask import Flask, render_template, flash, request, jsonify
@@ -8,7 +9,7 @@ from flask import Flask, render_template, flash, request, jsonify
 from lib import calculate_data
 
 app = Flask(__name__)
-
+app.logger.addHandler(logging.StreamHandler())
 
 @app.route('/_points_six')
 def points_six_recomm():
