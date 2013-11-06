@@ -10,6 +10,8 @@ from lib import calculate_data
 
 app = Flask(__name__)
 app.logger.addHandler(logging.StreamHandler())
+app.secret_key = os.environ['SECRET_KEY']
+
 
 @app.route('/_points_six')
 def points_six_recomm():
