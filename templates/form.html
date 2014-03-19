@@ -1,27 +1,17 @@
 {% extends "layout.html" %}
 {% block body %}
-<script type=text/javascript>
-  $(function() {
-    $('a#recomm').bind('click', function() {
-      $.getJSON($SCRIPT_ROOT + '/_points_six', {
-        points_max: $('input[name="points_max"]').val()
-      }, function(data) {
-        $('input[name="points_six"]').val(data.result);
-      });
-      return false;
-    });
-  });
-</script>
     <form action="{{ url_for('result') }}" method=post class=form>
       <dl>
-        <dt>Punkte max.:
-        <dd><input type=text size=30 name=points_max>
-        <dt>Punkte Note 6:
-        <dd><input type=text size=30 name=points_six> <a href=# id=recomm>Vorschlag</a>
+        <dt>Punkte Start:
+        <dd><input type=text size=30 value="20" name=points_start>
+        <dt>Punkte Ende:
+        <dd><input type=text size=30 value="50" name=points_end>
+        <dt>Faktor Note 6:
+        <dd><input type=text size=30 value="0.082" name=factor_six>
         <dd><input type="radio" name="steps" value="quarter" checked>Viertel
             <input type="radio" name="steps" value="tenth">Zehntel
         <dd><input type=submit value=Los>
       </dl>
     </form>
-    <div class=footer>&copy; Marc Schlaich, 2013</div>
+    <div class=footer>&copy; Marc Schlaich, 2014</div>
 {% endblock %}
